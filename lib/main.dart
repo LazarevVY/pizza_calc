@@ -133,21 +133,33 @@ class _PizzaCalcState extends State<PizzaCalc> {
                     value: PizzaSauce.hot,
                     groupValue: _sauce,
                     visualDensity: VisualDensity(horizontal: 0, vertical: -3.0),
-                    onChanged: (PizzaSauce? value) {}
+                    onChanged: (PizzaSauce? value) {
+                      setState(() {
+                        _sauce = value;
+                      });
+                    }
                     ),
                 RadioListTile(
                     title: const Text("Кисло-сладкий"),
                     value: PizzaSauce.sweet_and_sour,
                     groupValue: _sauce,
                     visualDensity: VisualDensity(horizontal: 0, vertical: -3.0),
-                    onChanged: (PizzaSauce? value){}
+                    onChanged: (PizzaSauce? value){
+                      setState(() {
+                        _sauce = value;
+                      });
+                    }
                 ),
                 RadioListTile(
                     title: const Text("Сырный"),
                     value: PizzaSauce.cheese,
                     groupValue: _sauce,
                     visualDensity: VisualDensity(horizontal: 0, vertical: -3.0),
-                    onChanged: (PizzaSauce? value){}
+                    onChanged: (PizzaSauce? value){
+                      setState(() {
+                        _sauce = value;
+                      });
+                    }
                 ),
 
 
