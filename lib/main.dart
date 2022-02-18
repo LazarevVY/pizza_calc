@@ -232,80 +232,82 @@ class _PizzaCalcState extends State<PizzaCalc> {
           body: Container(
             width: double.infinity,
             decoration: _background(),
-            child: Column(
-              children: [
-                //const SizedBox( height: 6),
-                SizedBox (
-                  height: 200,
-                  child: Image.asset("assets/images/pizza.png")
-                ),
-                //const SizedBox( height: 6),
-                const Text("Калькулятор пиццы",
-                style: TextStyle(fontSize: 36,
-                ),),
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.only(top: 10, left: 20),
-                child: const Text( "Выберите параметры:",
-                  style: TextStyle (fontSize: 16, color: Color(0xff000000)),
-                ),
-              ),
-                const SizedBox( height: 6),
-                _SlidingSwitch(),
-                _sizeSelect(),
-
-                const SizedBox( height: 6),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  //const SizedBox( height: 6),
+                  SizedBox (
+                    height: 200,
+                    child: Image.asset("assets/images/pizza.png")
+                  ),
+                  //const SizedBox( height: 6),
+                  const Text("Калькулятор пиццы",
+                  style: TextStyle(fontSize: 36,
+                  ),),
                 Container(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
                   padding: const EdgeInsets.only(top: 10, left: 20),
-                  child: const Text( "Соус:",
+                  child: const Text( "Выберите параметры:",
                     style: TextStyle (fontSize: 16, color: Color(0xff000000)),
                   ),
                 ),
-                RadioListTile(
-                    title: const Text("Острый"),
-                    value: PizzaSauce.hot,
-                    groupValue: _sauce,
-                    visualDensity: VisualDensity(horizontal: 0, vertical: -3.0),
-                    onChanged: _onSauceChanged
+                  const SizedBox( height: 6),
+                  _SlidingSwitch(),
+                  _sizeSelect(),
+
+                  const SizedBox( height: 6),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: const EdgeInsets.only(top: 10, left: 20),
+                    child: const Text( "Соус:",
+                      style: TextStyle (fontSize: 16, color: Color(0xff000000)),
                     ),
-                RadioListTile(
-                    title: const Text("Кисло-сладкий"),
-                    value: PizzaSauce.sweet_and_sour,
-                    groupValue: _sauce,
-                    visualDensity: VisualDensity(horizontal: 0, vertical: -3.0),
-                    onChanged: _onSauceChanged
-                ),
-                RadioListTile(
-                    title: const Text("Сырный"),
-                    value: PizzaSauce.cheese,
-                    groupValue: _sauce,
-                    visualDensity: VisualDensity(horizontal: 0, vertical: -3.0),
-                    onChanged: _onSauceChanged
-                ),
-                _additionalCheeseWidget(),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  padding: const EdgeInsets.only(top: 10, left: 20),
-                  child: const Text( "Стоимость:",
-                    style: TextStyle (fontSize: 24, color: Color(0xff000000)),
                   ),
-                ),
-                SizedBox(
-                  width: 300,
-                  height: 50,
-                  child: Card(
-                      color:  Color(0xfff0f0f0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                    child: Text("${_priceTotal} ${_currency}",
-                      style: TextStyle(fontSize: 32, color: Color(0xff000000)),
-                      textAlign: TextAlign.center),
+                  RadioListTile(
+                      title: const Text("Острый"),
+                      value: PizzaSauce.hot,
+                      groupValue: _sauce,
+                      visualDensity: VisualDensity(horizontal: 0, vertical: -3.0),
+                      onChanged: _onSauceChanged
+                      ),
+                  RadioListTile(
+                      title: const Text("Кисло-сладкий"),
+                      value: PizzaSauce.sweet_and_sour,
+                      groupValue: _sauce,
+                      visualDensity: VisualDensity(horizontal: 0, vertical: -3.0),
+                      onChanged: _onSauceChanged
+                  ),
+                  RadioListTile(
+                      title: const Text("Сырный"),
+                      value: PizzaSauce.cheese,
+                      groupValue: _sauce,
+                      visualDensity: VisualDensity(horizontal: 0, vertical: -3.0),
+                      onChanged: _onSauceChanged
+                  ),
+                  _additionalCheeseWidget(),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: const EdgeInsets.only(top: 10, left: 20),
+                    child: const Text( "Стоимость:",
+                      style: TextStyle (fontSize: 24, color: Color(0xff000000)),
                     ),
-                ),
-                SizedBox(height: 10),
-                _makeOrder(),
-              ],
+                  ),
+                  SizedBox(
+                    width: 300,
+                    height: 50,
+                    child: Card(
+                        color:  Color(0xfff0f0f0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                      child: Text("${_priceTotal} ${_currency}",
+                        style: TextStyle(fontSize: 32, color: Color(0xff000000)),
+                        textAlign: TextAlign.center),
+                      ),
+                  ),
+                  SizedBox(height: 10),
+                  _makeOrder(),
+                ],
+              ),
             ),
           ),
       ),
