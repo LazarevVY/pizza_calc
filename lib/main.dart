@@ -236,9 +236,16 @@ class _PizzaCalcState extends State<PizzaCalc> {
               child: Column(
                 children: [
                   //const SizedBox( height: 6),
-                  SizedBox (
-                    height: 200,
-                    child: Image.asset("assets/images/pizza.png")
+                  ClipRect(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      heightFactor: 0.65,
+                      widthFactor: 1,
+                      //child: SizedBox (
+                        //height: 300,
+                        child: Image.asset("assets/images/pizza.png")
+                     // ),
+                    ),
                   ),
                   //const SizedBox( height: 6),
                   const Text("Калькулятор пиццы",
